@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c2q2o047pw377"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Gato de Rua"
