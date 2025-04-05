@@ -11,5 +11,17 @@ config_version=5
 [application]
 
 config/name="Gato de Rua"
+run/main_scene="uid://h0ljbqnr21kr"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "green",
+"res://assets/cat/": "orange"
+}
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

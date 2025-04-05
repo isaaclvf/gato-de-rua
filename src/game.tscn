@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://h0ljbqnr21kr"]
+
+[ext_resource type="PackedScene" uid="uid://bdr0jbxdmn153" path="res://src/cat.tscn" id="1_7uq6d"]
+[ext_resource type="PackedScene" uid="uid://i0v2g7tmxtyu" path="res://src/dog-black.tscn" id="2_3msxb"]
+[ext_resource type="PackedScene" uid="uid://bp03fpg3thxhh" path="res://src/dog-yellow.tscn" id="3_xq6wo"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Cat" parent="." instance=ExtResource("1_7uq6d")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+metadata/_edit_lock_ = true
+
+[node name="DogBlack" parent="." instance=ExtResource("2_3msxb")]
+position = Vector2(-56, 0)
+
+[node name="DogYellow" parent="." instance=ExtResource("3_xq6wo")]
+position = Vector2(50, 0)
