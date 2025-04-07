@@ -120,10 +120,12 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vd25n"]
-size = Vector2(29, 24)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x5j3k"]
+radius = 7.0
+height = 26.0
 
 [node name="DogYellow" type="CharacterBody2D"]
+z_index = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -24)
@@ -133,5 +135,6 @@ autoplay = "idle"
 frame_progress = 0.244028
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.5, -12)
-shape = SubResource("RectangleShape2D_vd25n")
+position = Vector2(-3, -10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_x5j3k")

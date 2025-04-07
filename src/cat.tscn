@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdr0jbxdmn153"]
+[gd_scene load_steps=17 format=3 uid="uid://bdr0jbxdmn153"]
 
+[ext_resource type="Script" uid="uid://db1cdtu27qa4j" path="res://src/cat.gd" id="1_357ui"]
 [ext_resource type="Texture2D" uid="uid://dsqikwv8olueo" path="res://assets/cat/cat-ginger.png" id="1_wwqef"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wwqef"]
@@ -67,7 +68,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -96,21 +97,25 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwqef"]
-size = Vector2(20, 15)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_357ui"]
+radius = 5.5
+height = 11.0
 
 [node name="Cat" type="CharacterBody2D"]
+z_index = 5
+script = ExtResource("1_357ui")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -16)
 sprite_frames = SubResource("SpriteFrames_hh0bo")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.281789
+frame_progress = 0.694986
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7.5)
-shape = SubResource("RectangleShape2D_wwqef")
+z_index = 5
+position = Vector2(0, -6)
+shape = SubResource("CapsuleShape2D_357ui")

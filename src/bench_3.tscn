@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds5gtxkp2gc4n"]
+
+[ext_resource type="Texture2D" uid="uid://qerjn7sekcsi" path="res://assets/background/green-park/objects/benches/3.png" id="1_uxkjk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2r7ow"]
+size = Vector2(44, 9)
+
+[node name="Bench3" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uxkjk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_2r7ow")
