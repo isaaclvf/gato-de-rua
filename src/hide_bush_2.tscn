@@ -1,17 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwx0aab5qcp5j"]
+[gd_scene load_steps=4 format=3 uid="uid://dwx0aab5qcp5j"]
 
+[ext_resource type="Script" uid="uid://di414b7m0txxo" path="res://src/hide_bush_2.gd" id="1_muj80"]
 [ext_resource type="Texture2D" uid="uid://dlfxtjx4j37mq" path="res://assets/background/green-park/objects/bushes/17.png" id="1_oaojs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muj80"]
 size = Vector2(29, 15)
 
-[node name="Bush2" type="Node2D"]
+[node name="HideBush2" type="Node2D" groups=["hide"]]
+light_mask = 4
+visibility_layer = 2
+script = ExtResource("1_muj80")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -12)
 texture = ExtResource("1_oaojs")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["hide"]]
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-4.5, -7.5)

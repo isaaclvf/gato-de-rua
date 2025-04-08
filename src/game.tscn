@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c0f3vy3r1vh7e" path="res://assets/background/green-park/tileset.png" id="2_3msxb"]
 [ext_resource type="PackedScene" uid="uid://cgx5re2m1pgb6" path="res://src/mouse_pointer.tscn" id="2_xdrfk"]
 [ext_resource type="PackedScene" uid="uid://i0v2g7tmxtyu" path="res://src/dog-black.tscn" id="3_uktfx"]
-[ext_resource type="PackedScene" uid="uid://dwx0aab5qcp5j" path="res://assets/background/industrial/objects/bush_2.tscn" id="6_pk08u"]
+[ext_resource type="PackedScene" uid="uid://dwx0aab5qcp5j" path="res://src/hide_bush_2.tscn" id="6_pk08u"]
 [ext_resource type="PackedScene" uid="uid://bwxtnmcctetvp" path="res://src/tree_4.tscn" id="6_xdrfk"]
 [ext_resource type="PackedScene" uid="uid://c3kgjapmh8sx7" path="res://src/question_pointer.tscn" id="7_cdx1q"]
 [ext_resource type="PackedScene" uid="uid://cyr1xxumew0ct" path="res://src/background.tscn" id="7_wqvko"]
@@ -716,8 +716,11 @@ position = Vector2(1080, -94)
 
 [node name="Bushes" type="Node" parent="."]
 
-[node name="Bush2" parent="Bushes" instance=ExtResource("6_pk08u")]
-position = Vector2(315, 16)
+[node name="HideBush2" parent="Bushes" instance=ExtResource("6_pk08u")]
+position = Vector2(51, 112)
+
+[node name="HideBush3" parent="Bushes" instance=ExtResource("6_pk08u")]
+position = Vector2(314, 17)
 
 [node name="Benches" type="Node" parent="."]
 
@@ -773,10 +776,10 @@ content = "Cuidado com cachorros"
 [node name="Fences" type="Node" parent="."]
 
 [node name="Fence1" parent="Fences" instance=ExtResource("14_aikvj")]
-position = Vector2(1349, 113)
+position = Vector2(1443, 113)
 
 [node name="Fence2" parent="Fences" instance=ExtResource("14_aikvj")]
-position = Vector2(1382, 113)
+position = Vector2(1476, 113)
 
 [node name="Killzone" parent="." instance=ExtResource("9_4bcji")]
 position = Vector2(0, 205)
