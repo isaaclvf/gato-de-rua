@@ -10,28 +10,41 @@ const JUMP_VELOCITY = -280.0
 var can_hide := false
 var is_hidden := false
 var current_bush = null
+var normal_modulate: float = 1.0  # Store normal opacity
 
 func _ready():
 	input_handler.direction_changed.connect(_on_direction_changed)
-	
+	normal_modulate = animated_sprite.modulate.a  # Store initial opacity
+
 func _process(delta):
-	if Input.is_action_just_pressed("hide") and can_hide:
-		if is_hidden:
-			current_bush.unhide_player(self)
-			is_hidden = false
-			# Restore player visibility/collision
-			$AnimatedSprite2D.show()
-		else:
+	if Input.is_action_just_pressed("hide"):
+		if can_hide and not is_hidden:
+			# Hide the player
 			current_bush.hide_player(self)
 			is_hidden = true
-			$AnimatedSprite2D.modulate.a = 0.5
-
+			animated_sprite.modulate.a = 0.5
+		elif is_hidden:
+			# Unhide the player
+			current_bush.unhide_player(self)
+			is_hidden = false
+			animated_sprite.modulate.a = normal_modulate
+			animated_sprite.show()
 
 func _physics_process(delta: float) -> void:
-	handle_normal_state(delta)
+	if is_hidden:
+		handle_hidden_state(delta)
+	else:
+		handle_normal_state(delta)
 
-func _on_direction_changed(facing_right: bool):
-	animated_sprite.flip_h = not facing_right
+func handle_hidden_state(delta):
+	# Player is hidden - only respond to unhide input (handled in _process)
+	# Stop all movement
+	velocity.x = move_toward(velocity.x, 0, WALK_SPEED)
+	velocity.y = 0
+	move_and_slide()
+	
+	# Ensure sprite stays still
+	animated_sprite.play("idle")
 
 func handle_normal_state(delta):
 	# Add the gravity.
@@ -42,7 +55,6 @@ func handle_normal_state(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		animated_sprite.play("jump")
-
 
 	var direction := Input.get_axis("move_left", "move_right")
 	var is_sprinting := Input.is_action_pressed("sprint")
@@ -88,5 +100,9 @@ func _on_hide_zone_detector_area_exited(area: Area2D) -> void:
 			# Force unhide if leaving bush while hidden
 			current_bush.unhide_player(self)
 			is_hidden = false
-			$AnimatedSprite2D.show()
+			animated_sprite.modulate.a = normal_modulate
+			animated_sprite.show()
 		current_bush = null
+
+func _on_direction_changed(facing_right: bool):
+	animated_sprite.flip_h = not facing_right

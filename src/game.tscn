@@ -12,10 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://ds5gtxkp2gc4n" path="res://src/bench_3.tscn" id="8_cdx1q"]
 [ext_resource type="PackedScene" uid="uid://buey0c04kumyf" path="res://src/killzone.tscn" id="9_4bcji"]
 [ext_resource type="PackedScene" uid="uid://dfuhsjp343sc2" path="res://src/bench_2.tscn" id="9_uktfx"]
-[ext_resource type="Texture2D" uid="uid://c2tcolb6rnn21" path="res://assets/background/industrial/objects/box5.png" id="11_g3j30"]
 [ext_resource type="PackedScene" uid="uid://cple4fity1ru2" path="res://src/exclamation_pointer.tscn" id="11_qiocs"]
 [ext_resource type="Texture2D" uid="uid://b4bhc01dtvlca" path="res://assets/background/industrial/objects/box1.png" id="11_y2hwx"]
 [ext_resource type="PackedScene" uid="uid://bojqoryb7ewv2" path="res://src/fence_1.tscn" id="14_aikvj"]
+[ext_resource type="PackedScene" uid="uid://bfksrft35raok" path="res://src/hide_box.tscn" id="16_aikvj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xq6wo"]
 texture = ExtResource("2_3msxb")
@@ -716,9 +716,6 @@ position = Vector2(1080, -94)
 
 [node name="Bushes" type="Node" parent="."]
 
-[node name="HideBush2" parent="Bushes" instance=ExtResource("6_pk08u")]
-position = Vector2(51, 112)
-
 [node name="HideBush3" parent="Bushes" instance=ExtResource("6_pk08u")]
 position = Vector2(314, 17)
 
@@ -742,9 +739,8 @@ position = Vector2(875, 99)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("11_y2hwx")
 
-[node name="Box5" type="Sprite2D" parent="Boxes"]
-position = Vector2(1009, 97)
-texture = ExtResource("11_g3j30")
+[node name="HideBox" parent="Boxes" instance=ExtResource("16_aikvj")]
+position = Vector2(1026, 113)
 
 [node name="Pointers" type="Node" parent="."]
 
@@ -754,7 +750,7 @@ content = "Espaço para pular"
 
 [node name="QuestionPointer2" parent="Pointers" instance=ExtResource("7_cdx1q")]
 position = Vector2(337, 16)
-content = "Aproxime para esconder"
+content = "S para esconder"
 
 [node name="QuestionPointer3" parent="Pointers" instance=ExtResource("7_cdx1q")]
 position = Vector2(528, -15)
