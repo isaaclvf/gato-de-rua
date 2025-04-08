@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://i0v2g7tmxtyu"]
 
-[ext_resource type="Script" uid="uid://chpwn00yqm1nx" path="res://src/dog_black.gd" id="1_q0mjn"]
+[ext_resource type="Script" uid="uid://don0j1i2dpep0" path="res://src/dog_black.gd" id="1_q0mjn"]
 [ext_resource type="Texture2D" uid="uid://k0f3lxfia30k" path="res://assets/street-animals/dog-black/attack.png" id="1_uf4el"]
 [ext_resource type="Texture2D" uid="uid://ee0y83bstqig" path="res://assets/street-animals/dog-black/idle.png" id="2_ntota"]
 [ext_resource type="Texture2D" uid="uid://c3cgufch24uim" path="res://assets/street-animals/dog-black/walk.png" id="3_lhrqe"]
@@ -126,7 +126,7 @@ animations = [{
 radius = 5.0
 height = 24.0
 
-[node name="DogBlack" type="Node2D"]
+[node name="DogBlack" type="CharacterBody2D"]
 script = ExtResource("1_q0mjn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -134,7 +134,7 @@ position = Vector2(3, -24)
 sprite_frames = SubResource("SpriteFrames_mk851")
 animation = &"walk"
 autoplay = "walk"
-frame_progress = 0.0248874
+frame_progress = 0.0618086
 
 [node name="Killzone" parent="." instance=ExtResource("4_tmtr6")]
 
@@ -150,3 +150,8 @@ target_position = Vector2(19, 0)
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(-2, -13)
 target_position = Vector2(-17, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_c0tl6")

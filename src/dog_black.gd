@@ -1,6 +1,7 @@
-extends Node2D
+extends CharacterBody2D
 
-const SPEED = 100
+const SPEED = 200.0
+const JUMP_VELOCITY = -400.0
 
 var direction = 1
 
@@ -16,3 +17,9 @@ func _process(delta: float) -> void:
 		direction = 1
 		animated_sprite.flip_h = false
 	position.x += direction * SPEED * delta
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	move_and_slide()

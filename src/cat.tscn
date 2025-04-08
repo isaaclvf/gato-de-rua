@@ -207,9 +207,9 @@ script = ExtResource("1_357ui")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -16)
 sprite_frames = SubResource("SpriteFrames_hh0bo")
-animation = &"hide"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.0120733
+frame_progress = 0.0644293
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 5
