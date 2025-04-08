@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3kgjapmh8sx7"]
+
+[ext_resource type="Script" uid="uid://bf1hvvkdx76yp" path="res://src/question_pointer.gd" id="1_faidp"]
+[ext_resource type="Texture2D" uid="uid://bvby1t31gkwnk" path="res://assets/background/industrial/objects/pointer2.png" id="1_jxusa"]
+[ext_resource type="FontFile" uid="uid://bfhbvcjb3sm7a" path="res://assets/fonts/PixelOperator8.ttf" id="2_lxf86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxf86"]
+size = Vector2(69.5, 65.5)
+
+[node name="QuestionPointer" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_faidp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -16)
+texture = ExtResource("1_jxusa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_lxf86")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -34.0
+offset_top = -60.0
+offset_right = 35.0
+offset_bottom = -37.0
+theme_override_colors/font_color = Color(0.103928, 0.134584, 0.234324, 1)
+theme_override_fonts/font = ExtResource("2_lxf86")
+theme_override_font_sizes/font_size = 8
+text = "Hello there"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

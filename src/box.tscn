@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt2ej6orcagjm"]
+
+[ext_resource type="Texture2D" uid="uid://dwcwhmcj1afpw" path="res://assets/background/green-park/objects/other/Box.png" id="1_32hn1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_32hn1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iesrs"]
+size = Vector2(29, 21)
+
+[node name="Box" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_32hn1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_32hn1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_iesrs")

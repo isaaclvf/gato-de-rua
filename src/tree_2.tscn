@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdqrue78a50c8"]
+
+[ext_resource type="Texture2D" uid="uid://867ft4qs1fa5" path="res://assets/background/green-park/objects/other/Tree2.png" id="1_plmm0"]
+
+[node name="Tree2" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_plmm0")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cple4fity1ru2"]
+
+[ext_resource type="Script" uid="uid://dtqlsyncwd6s" path="res://src/exclamation_pointer.gd" id="1_dr7g2"]
+[ext_resource type="Texture2D" uid="uid://cxl0whgci6b3t" path="res://assets/background/industrial/objects/pointer1.png" id="1_v0p10"]
+[ext_resource type="FontFile" uid="uid://bfhbvcjb3sm7a" path="res://assets/fonts/PixelOperator8.ttf" id="2_nwj82"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwj82"]
+size = Vector2(88, 70)
+
+[node name="ExclamationPointer" type="Area2D"]
+script = ExtResource("1_dr7g2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -16)
+texture = ExtResource("1_v0p10")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -18)
+shape = SubResource("RectangleShape2D_nwj82")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -34.0
+offset_top = -60.0
+offset_right = 35.0
+offset_bottom = -37.0
+theme_override_colors/font_color = Color(0.105882, 0.133333, 0.235294, 1)
+theme_override_fonts/font = ExtResource("2_nwj82")
+theme_override_font_sizes/font_size = 8
+text = "Hello there"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

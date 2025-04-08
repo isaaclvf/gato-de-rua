@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dflqssrcc748a"]
+
+[ext_resource type="Texture2D" uid="uid://cgb1sw0d7k4fw" path="res://assets/background/green-park/objects/bushes/20.png" id="1_3b074"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0xkt"]
+size = Vector2(20, 10)
+
+[node name="Bush4" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
+texture = ExtResource("1_3b074")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_r0xkt")

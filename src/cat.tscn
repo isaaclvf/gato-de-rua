@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdr0jbxdmn153"]
+[gd_scene load_steps=18 format=3 uid="uid://bdr0jbxdmn153"]
 
 [ext_resource type="Script" uid="uid://db1cdtu27qa4j" path="res://src/cat.gd" id="1_357ui"]
 [ext_resource type="Texture2D" uid="uid://dsqikwv8olueo" path="res://assets/cat/cat-ginger.png" id="1_wwqef"]
+[ext_resource type="Script" uid="uid://lnj1hqdbl787" path="res://src/player_input_handler.gd" id="3_4cy18"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wwqef"]
 atlas = ExtResource("1_wwqef")
@@ -106,6 +107,7 @@ height = 11.0
 
 [node name="Cat" type="CharacterBody2D"]
 z_index = 5
+collision_layer = 2
 script = ExtResource("1_357ui")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -119,3 +121,6 @@ frame_progress = 0.694986
 z_index = 5
 position = Vector2(0, -6)
 shape = SubResource("CapsuleShape2D_357ui")
+
+[node name="PlayerInputHandler" type="Node2D" parent="."]
+script = ExtResource("3_4cy18")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bojqoryb7ewv2"]
+
+[ext_resource type="Texture2D" uid="uid://dn7trnqlgw2py" path="res://assets/background/green-park/objects/fence/5.png" id="1_rtplo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2g16"]
+size = Vector2(28, 60)
+
+[node name="Fence1" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("1_rtplo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -33)
+shape = SubResource("RectangleShape2D_d2g16")

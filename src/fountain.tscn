@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://bh33dkv02qcgm"]
+
+[ext_resource type="Texture2D" uid="uid://btirodgabfqxt" path="res://assets/background/green-park/animated-objects/fountain.png" id="1_d0usp"]
+[ext_resource type="Script" uid="uid://dkt8wjuikqbfq" path="res://src/fountain.gd" id="1_it78x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it78x"]
+atlas = ExtResource("1_d0usp")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4myu8"]
+atlas = ExtResource("1_d0usp")
+region = Rect2(72, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8vnu"]
+atlas = ExtResource("1_d0usp")
+region = Rect2(144, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq3qw"]
+atlas = ExtResource("1_d0usp")
+region = Rect2(216, 0, 72, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_miwib"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_it78x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4myu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8vnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq3qw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpk1e"]
+size = Vector2(56, 13)
+
+[node name="Fountain" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_it78x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -36)
+sprite_frames = SubResource("SpriteFrames_miwib")
+autoplay = "default"
+frame_progress = 0.668255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_fpk1e")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

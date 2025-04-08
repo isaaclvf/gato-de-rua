@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://biaagcbyanplq"]
+
+[ext_resource type="Texture2D" uid="uid://c2pstj676g4h0" path="res://assets/background/green-park/animated-objects/skateboard.png" id="1_i1pvu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y83ee"]
+atlas = ExtResource("1_i1pvu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjahe"]
+atlas = ExtResource("1_i1pvu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwrl8"]
+atlas = ExtResource("1_i1pvu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iufpe"]
+atlas = ExtResource("1_i1pvu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31qan"]
+atlas = ExtResource("1_i1pvu")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6rvp"]
+atlas = ExtResource("1_i1pvu")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuaek"]
+atlas = ExtResource("1_i1pvu")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33jh3"]
+atlas = ExtResource("1_i1pvu")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0pbt"]
+atlas = ExtResource("1_i1pvu")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_le2fh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y83ee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjahe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwrl8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iufpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31qan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6rvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuaek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33jh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0pbt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Skateboard" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_le2fh")
+autoplay = "default"
+frame_progress = 0.425517
