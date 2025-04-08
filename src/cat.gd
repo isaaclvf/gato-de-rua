@@ -12,6 +12,8 @@ var is_hidden := false
 var current_bush = null
 var normal_modulate: float = 1.0  # Store normal opacity
 
+var pushing_box = null
+
 func _ready():
 	input_handler.direction_changed.connect(_on_direction_changed)
 	normal_modulate = animated_sprite.modulate.a  # Store initial opacity
@@ -87,6 +89,15 @@ func handle_normal_state(delta):
 		velocity.x = move_toward(velocity.x, 0, WALK_SPEED)
 
 	move_and_slide()
+	
+	# After move_and_slide(), check for pushes
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().is_in_group("pushable"):
+			var box = collision.get_collider()
+			# Apply force at the collision position
+			var push_direction = Vector2(sign(velocity.x), 0)
+			box.apply_force(push_direction * box.push_force, collision.get_position())
 
 func _on_hide_zone_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("hide"):
