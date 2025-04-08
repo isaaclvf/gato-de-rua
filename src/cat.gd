@@ -90,15 +90,17 @@ func handle_normal_state(delta):
 
 	move_and_slide()
 	
-	# After move_and_slide(), check for pushes
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if collision.get_collider().is_in_group("pushable"):
-			var box = collision.get_collider()
-			# Apply force at the collision position
-			var push_direction = Vector2(sign(velocity.x), 0)
-			box.apply_force(push_direction * box.push_force, collision.get_position())
-
+			# Apply push force based on player movement
+			if Input.is_action_pressed("move_right"):
+				collision.get_collider().push_direction = Vector2.RIGHT
+				collision.get_collider().being_pushed = true
+			elif Input.is_action_pressed("move_left"):
+				collision.get_collider().push_direction = Vector2.LEFT
+				collision.get_collider().being_pushed = true
+	
 func _on_hide_zone_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("hide"):
 		can_hide = true

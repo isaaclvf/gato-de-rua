@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ds5gtxkp2gc4n" path="res://src/bench_3.tscn" id="8_cdx1q"]
 [ext_resource type="PackedScene" uid="uid://buey0c04kumyf" path="res://src/killzone.tscn" id="9_4bcji"]
 [ext_resource type="PackedScene" uid="uid://dfuhsjp343sc2" path="res://src/bench_2.tscn" id="9_uktfx"]
-[ext_resource type="PackedScene" uid="uid://dt2ej6orcagjm" path="res://src/box.tscn" id="11_aikvj"]
+[ext_resource type="PackedScene" uid="uid://dt2ej6orcagjm" path="res://src/pushable_box.tscn" id="11_aikvj"]
 [ext_resource type="PackedScene" uid="uid://cple4fity1ru2" path="res://src/exclamation_pointer.tscn" id="11_qiocs"]
 [ext_resource type="PackedScene" uid="uid://bojqoryb7ewv2" path="res://src/fence_1.tscn" id="14_aikvj"]
 [ext_resource type="PackedScene" uid="uid://bfksrft35raok" path="res://src/hide_box.tscn" id="16_aikvj"]
@@ -732,14 +732,14 @@ position = Vector2(453, 53)
 [node name="HideBox" parent="Boxes" instance=ExtResource("16_aikvj")]
 position = Vector2(1026, 113)
 
-[node name="Box" parent="Boxes" instance=ExtResource("11_aikvj")]
-position = Vector2(734, -28)
+[node name="PushableBox" parent="Boxes" instance=ExtResource("11_aikvj")]
+position = Vector2(733, -27)
 
-[node name="Box3" parent="Boxes" instance=ExtResource("11_aikvj")]
-position = Vector2(53, 88)
+[node name="PushableBox2" parent="Boxes" instance=ExtResource("11_aikvj")]
+position = Vector2(882, 99)
 
-[node name="Box2" parent="Boxes" instance=ExtResource("11_aikvj")]
-position = Vector2(883, 100)
+[node name="PushableBox3" parent="Boxes" instance=ExtResource("11_aikvj")]
+position = Vector2(46, 92)
 
 [node name="Pointers" type="Node" parent="."]
 

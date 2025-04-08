@@ -1,18 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://dt2ej6orcagjm"]
 
 [ext_resource type="Texture2D" uid="uid://dwcwhmcj1afpw" path="res://assets/background/green-park/objects/other/Box.png" id="1_32hn1"]
-[ext_resource type="Script" uid="uid://biusosv0l2u5i" path="res://src/box.gd" id="1_iesrs"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iesrs"]
+[ext_resource type="Script" uid="uid://cb2jl23thy6fd" path="res://src/pushable_box.gd" id="1_klurb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iesrs"]
 size = Vector2(29, 21)
 
-[node name="Box" type="RigidBody2D" groups=["pushable"]]
-mass = 0.5
-physics_material_override = SubResource("PhysicsMaterial_iesrs")
-can_sleep = false
-script = ExtResource("1_iesrs")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klurb"]
+size = Vector2(29, 21)
+
+[node name="PushableBox" type="CharacterBody2D" groups=["pushable"]]
+script = ExtResource("1_klurb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_32hn1")
@@ -20,3 +18,9 @@ texture = ExtResource("1_32hn1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_iesrs")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_klurb")
