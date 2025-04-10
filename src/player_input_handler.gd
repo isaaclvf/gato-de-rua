@@ -10,7 +10,4 @@ func _input(event):
 		
 		if cat:  # Safety check
 			var facing_right = mouse_pos.x > cat.global_position.x
-			print("Player at: ", cat.global_position.x, 
-				  " | Click at: ", mouse_pos.x,
-				  " | Facing right: ", facing_right)
 			direction_changed.emit(facing_right)

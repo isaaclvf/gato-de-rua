@@ -770,6 +770,9 @@ position = Vector2(1443, 113)
 [node name="Fence2" parent="Fences" instance=ExtResource("14_aikvj")]
 position = Vector2(1476, 113)
 
+[node name="Fountain" parent="." instance=ExtResource("17_ns0lu")]
+position = Vector2(-73, 113)
+
 [node name="Killzone" parent="." instance=ExtResource("9_4bcji")]
 position = Vector2(0, 205)
 
@@ -777,6 +780,3 @@ position = Vector2(0, 205)
 shape = SubResource("WorldBoundaryShape2D_uktfx")
 
 [node name="Background" parent="." instance=ExtResource("7_wqvko")]
-
-[node name="Fountain" parent="." instance=ExtResource("17_ns0lu")]
-position = Vector2(-73, 113)
