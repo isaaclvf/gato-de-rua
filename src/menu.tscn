@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c2b0l0tcf5gk7" path="res://assets/menuItens/placa.png" id="4_ts47l"]
 
 [node name="Menu" type="Control"]
+custom_minimum_size = Vector2(800, 600)
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -19,32 +19,32 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_right = 784.0
+offset_bottom = 441.0
 texture = ExtResource("3_cyxwt")
+expand_mode = 3
+stretch_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -459.0
-offset_top = -272.5
-offset_right = 459.0
-offset_bottom = 272.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 1912.0
+offset_bottom = 1080.0
 
-[node name="titulo" type="TextureRect" parent="VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_ts47l")
-
-[node name="Button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Jogar"
-
-[node name="placa" type="TextureRect" parent="VBoxContainer"]
+[node name="placa" type="TextureRect" parent="CenterContainer"]
 layout_mode = 2
 texture = ExtResource("4_ts47l")
+stretch_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="titulo" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ts47l")
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Jogar"
