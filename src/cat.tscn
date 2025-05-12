@@ -236,5 +236,9 @@ debug_enabled = true
 wait_time = 0.5
 autostart = true
 
+[node name="NavigationTimeoutTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="area_entered" from="HideZoneDetector" to="." method="_on_hide_zone_detector_area_entered"]
 [connection signal="area_exited" from="HideZoneDetector" to="." method="_on_hide_zone_detector_area_exited"]
