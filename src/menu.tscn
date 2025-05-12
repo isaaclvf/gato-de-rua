@@ -8,6 +8,7 @@
 [node name="Menu" type="Control"]
 custom_minimum_size = Vector2(800, 600)
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -21,6 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 784.0
 offset_bottom = 441.0
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_cyxwt")
 expand_mode = 3
 stretch_mode = 2
@@ -29,8 +31,9 @@ stretch_mode = 2
 layout_mode = 0
 offset_right = 1912.0
 offset_bottom = 1080.0
+scale = Vector2(0.6, 0.6)
 
-[node name="placa" type="TextureRect" parent="CenterContainer"]
+[node name="Placa" type="TextureRect" parent="CenterContainer"]
 layout_mode = 2
 texture = ExtResource("4_ts47l")
 stretch_mode = 2
@@ -40,11 +43,12 @@ layout_mode = 2
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="titulo" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+[node name="Titulo" type="TextureRect" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_ts47l")
 stretch_mode = 5
 
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Jogar"

@@ -230,7 +230,6 @@ shape = SubResource("CapsuleShape2D_4cy18")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 4.0
 target_desired_distance = 8.0
-debug_enabled = true
 
 [node name="ThinkingTimer" type="Timer" parent="."]
 wait_time = 0.5
