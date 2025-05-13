@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://chgqxvqnm8qrr"
+path="res://.godot/imported/Best Friend (8 Bits) - Lofi Hip Hop (8 Bits Music) 🎧🎶 [HD] 1080p.mp3-ebe201cf04b8f6f36b9502899ad989b6.mp3str"
+
+[deps]
+
+source_file="res://src/Best Friend (8 Bits) - Lofi Hip Hop (8 Bits Music) 🎧🎶 [HD] 1080p.mp3"
+dest_files=["res://.godot/imported/Best Friend (8 Bits) - Lofi Hip Hop (8 Bits Music) 🎧🎶 [HD] 1080p.mp3-ebe201cf04b8f6f36b9502899ad989b6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
