@@ -4,7 +4,7 @@ signal ground_impact(impact_velocity)
 
 @export var max_speed := 100.0
 @export var friction := 0.9
-@export var push_force := 400.0
+@export var push_force := 800.0
 @export var min_impact_velocity := 200.0
 
 var being_pushed := false

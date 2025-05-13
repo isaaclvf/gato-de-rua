@@ -20,13 +20,15 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_lxf86")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -34.0
-offset_top = -60.0
-offset_right = 35.0
-offset_bottom = -37.0
+offset_left = -35.0
+offset_top = -71.0
+offset_right = 34.0
+offset_bottom = -48.0
 theme_override_colors/font_color = Color(0.103928, 0.134584, 0.234324, 1)
 theme_override_fonts/font = ExtResource("2_lxf86")
 theme_override_font_sizes/font_size = 8
 text = "Hello there"
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
