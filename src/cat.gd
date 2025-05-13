@@ -6,6 +6,11 @@ const SPRINT_SPEED = 260.0
 const JUMP_VELOCITY = -280.0
 @export var SPRINT_DISTANCE_THRESHOLD: float = 100.0 # Min distance to target to trigger sprint
 @export var NAVIGATION_TIMEOUT: float = 3.0 # Seconds before navigation target expires
+@export var normal_collision_mask: int
+@export var hidden_collision_mask: int = 0b0000
+@export var normal_collision_layer: int
+@export var hidden_collision_layer: int = 0b0000
+
 
 # Node References
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -13,6 +18,8 @@ const JUMP_VELOCITY = -280.0
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var thinking_timer: Timer = $ThinkingTimer
 @onready var navigation_timeout_timer: Timer = $NavigationTimeoutTimer # New Timer
+
+
 
 # State Variables
 enum ControlMode { KEYBOARD, MOUSE_FOLLOW }
@@ -160,7 +167,14 @@ func handle_navigation_movement(delta: float):
 		if result: # Found potential ground to land on
 			velocity.y = JUMP_VELOCITY
 		# else: Consider what happens if the jump seems unsafe. For now, it just won't jump.
-
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().is_in_group("pushable"):
+			var player_velocity = get_velocity()
+			var push_force = Vector2(player_velocity.x * 0.075,0)
+			push_force.normalized()
+			# Apply force to the RigidBody2D
+			collision.get_collider().apply_central_impulse(push_force)
 # --- Animation & Interaction ---
 
 func update_animations():
@@ -218,26 +232,36 @@ func check_for_pushing_box():
 					if (velocity.x > 0 and normal.x < -0.5) or \
 					   (velocity.x < 0 and normal.x > 0.5):
 						pushing_box_collider = collider
-						# print("Pushing box:", collider.name) # Debug
+						print("Pushing box:", collider.name) # Debug
 						break # Found a box being pushed
 
 
 func hide_in_bush():
 	if current_bush and not is_hidden:
-		if current_bush.has_method("hide_player"): current_bush.hide_player(self)
-		is_hidden = true
-		animated_sprite.modulate.a = 0.5 # Make semi-transparent
-		_stop_navigation("Hidden") # Cancel navigation if hiding
-
-
+		if current_bush.has_method("hide_player"): 
+			current_bush.hide_player(self)
+	is_hidden = true
+	animated_sprite.modulate.a = 0.5
+	_stop_navigation("Hidden")
+	#set_collision_mask_value(1, false)  
+	#set_collision_mask_value(2, false) 
+	#set_collision_mask_value(3, false)
+	normal_collision_mask = collision_mask
+	normal_collision_layer = collision_layer
+	collision_mask = 0b0000
+	collision_layer = 0b0000
+		
 func unhide_from_bush():
-	if is_hidden: # Check is_hidden first
+	if is_hidden:
 		if current_bush and current_bush.has_method("unhide_player"):
 			current_bush.unhide_player(self)
 		is_hidden = false
-		animated_sprite.modulate.a = normal_modulate_alpha
-		animated_sprite.show() # Ensure sprite is fully visible
-
+		animated_sprite.modulate.a = 1.0
+		
+		# Reativa todas as colisões
+		collision_mask = normal_collision_mask
+		collision_layer = normal_collision_layer
+		
 # --- Signal Handlers ---
 
 func _on_input_handler_direction_changed(facing_right: bool):
